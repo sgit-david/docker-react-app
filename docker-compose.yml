@@ -1,24 +1,8 @@
 version: "3"
 services:
-  react:
+  web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    image: docker-react-app-image
-    container_name: docker-react-app-container
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    volumes:
-      - /usr/src/app/node_modules
-      - ./:/usr/src/app
-    stdin_open: true
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    image: docker-react-app-image
-    container_name: docker-react-app-test-container
-    volumes:
-      - /usr/src/app/node_modules
-      - ./:/usr/src/app
-    command: ["npm", "run", "test"]
+      - "80:80"
